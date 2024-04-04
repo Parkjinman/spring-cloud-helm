@@ -1,0 +1,81 @@
+batchDeployment:
+  batch:
+    image:
+      repository: jinmanpark/woodpecker-msa-batch-service
+      tag: '1'
+  replicas: 1
+batchService:
+  ports:
+    - port: 8020
+      targetPort: 8020
+  type: ClusterIP
+bffDeployment:
+  bff:
+    image:
+      repository: jinmanpark/woodpecker-msa-bff-service
+      tag: '1'
+  replicas: 1
+bffService:
+  ports:
+    - port: 8040
+      targetPort: 8040
+  type: ClusterIP
+discoveryDeployment:
+  discovery:
+    image:
+      repository: jinmanpark/woodpecker-msa-discovery-service
+      tag: '1'
+  replicas: 1
+discoveryService:
+  ports:
+    - port: 8761
+      targetPort: 8761
+  type: ClusterIP
+gatewayDeployment:
+  gateway:
+    image:
+      repository: jinmanpark/woodpecker-msa-gateway-service
+      tag: '1'
+  replicas: 1
+gatewayService:
+  ports:
+    - port: 9000
+      targetPort: 9000
+  type: ClusterIP
+kubernetesDeployment:
+  kubernetes:
+    image:
+      repository: jinmanpark/woodpecker-msa-kubernetes-service
+      tag: '1'
+  replicas: 1
+kubernetesService:
+  ports:
+    - port: 8030
+      targetPort: 8030
+  type: ClusterIP
+postgres:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  type: ClusterIP
+postgresDeployment:
+  postgres:
+    image:
+      repository: jinmanpark/woodpecker-msa-postgres
+      tag: v20240319
+  replicas: 1
+userDeployment:
+  replicas: 1
+  user:
+    image:
+      repository: jinmanpark/woodpecker-msa-user-service
+      tag: '1'
+userService:
+  ports:
+    - port: 8010
+      targetPort: 8010
+  type: ClusterIP
+deployment:
+  discovery:
+    image:
+      tag: '28'
