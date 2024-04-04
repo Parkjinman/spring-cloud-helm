@@ -42,17 +42,6 @@ gatewayService:
     - port: 9000
       targetPort: 9000
   type: ClusterIP
-kubernetesDeployment:
-  kubernetes:
-    image:
-      repository: jinmanpark/woodpecker-msa-kubernetes-service
-      tag: '1'
-  replicas: 1
-kubernetesService:
-  ports:
-    - port: 8030
-      targetPort: 8030
-  type: ClusterIP
 postgres:
   ports:
     - port: 5432

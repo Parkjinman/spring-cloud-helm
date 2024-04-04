@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bff-service
+  name: business-service
   labels:
   {{- include "woodpecker-helm.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.bffService.type }}
+  type: {{ .Values.businessService.type }}
   selector:
-    app: woodpecker-bff
+    app: woodpecker-business
   {{- include "woodpecker-helm.selectorLabels" . | nindent 4 }}
   ports:
-	{{- .Values.bffService.ports | toYaml | nindent 2 -}}
+	{{- .Values.businessService.ports | toYaml | nindent 2 -}}

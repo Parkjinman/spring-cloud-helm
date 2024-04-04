@@ -34,29 +34,29 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-bff-deployment
+  name: {{ include "woodpecker-helm.fullname" . }}-business-deployment
   labels:
-    app: woodpecker-bff
+    app: woodpecker-business
   {{- include "woodpecker-helm.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.bffDeployment.replicas }}
+  replicas: {{ .Values.businessDeployment.replicas }}
   selector:
     matchLabels:
-      app: woodpecker-bff
+      app: woodpecker-business
     {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: woodpecker-bff
+        app: woodpecker-business
       {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - env:
         - name: spring.profiles.active
           value: prod
-        image: {{ .Values.bffDeployment.bff.image.repository }}:{{ .Values.bffDeployment.bff.image.tag
+        image: {{ .Values.businessDeployment.business.image.repository }}:{{ .Values.businessDeployment.business.image.tag
           | default .Chart.AppVersion }}
-        name: bff
+        name: business
         ports:
         - containerPort: 8040
         resources: {}
@@ -127,39 +127,6 @@ spec:
         name: gateway
         ports:
         - containerPort: 9000
-        resources: {}
-      nodeSelector:
-        woodpecker-node: "true"
-      restartPolicy: Always
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-kubernetes-deployment
-  labels:
-    app: woodpecker-kubernetes
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
-spec:
-  replicas: {{ .Values.kubernetesDeployment.replicas }}
-  selector:
-    matchLabels:
-      app: woodpecker-kubernetes
-    {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
-  template:
-    metadata:
-      labels:
-        app: woodpecker-kubernetes
-      {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
-    spec:
-      containers:
-      - env:
-        - name: spring.profiles.active
-          value: prod
-        image: {{ .Values.kubernetesDeployment.kubernetes.image.repository }}:{{ .Values.kubernetesDeployment.kubernetes.image.tag
-          | default .Chart.AppVersion }}
-        name: kubernetes
-        ports:
-        - containerPort: 8030
         resources: {}
       nodeSelector:
         woodpecker-node: "true"
