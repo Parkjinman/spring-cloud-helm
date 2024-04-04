@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: discovery-service
   labels:
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.discoveryService.type }}
   selector:
     app: woodpecker-discovery
-  {{- include "woodpecker-helm.selectorLabels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.selectorLabels" . | nindent 4 }}
   ports:
 	{{- .Values.discoveryService.ports | toYaml | nindent 2 -}}

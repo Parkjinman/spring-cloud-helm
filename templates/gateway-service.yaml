@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: gateway-service
   labels:
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.gatewayService.type }}
   selector:
     app: woodpecker-gateway
-  {{- include "woodpecker-helm.selectorLabels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.selectorLabels" . | nindent 4 }}
   ports:
 	{{- .Values.gatewayService.ports | toYaml | nindent 2 -}}

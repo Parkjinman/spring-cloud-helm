@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-batch-deployment
+  name: {{ include "spring-cloud-helm.fullname" . }}-batch-deployment
   labels:
     app: woodpecker-batch
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.batchDeployment.replicas }}
   selector:
     matchLabels:
       app: woodpecker-batch
-    {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
+    {{- include "spring-cloud-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         app: woodpecker-batch
-      {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
+      {{- include "spring-cloud-helm.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - env:
@@ -34,21 +34,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-business-deployment
+  name: {{ include "spring-cloud-helm.fullname" . }}-business-deployment
   labels:
     app: woodpecker-business
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.businessDeployment.replicas }}
   selector:
     matchLabels:
       app: woodpecker-business
-    {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
+    {{- include "spring-cloud-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         app: woodpecker-business
-      {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
+      {{- include "spring-cloud-helm.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - env:
@@ -67,21 +67,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-discovery-deployment
+  name: {{ include "spring-cloud-helm.fullname" . }}-discovery-deployment
   labels:
     app: woodpecker-discovery
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.discoveryDeployment.replicas }}
   selector:
     matchLabels:
       app: woodpecker-discovery
-    {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
+    {{- include "spring-cloud-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         app: woodpecker-discovery
-      {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
+      {{- include "spring-cloud-helm.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - env:
@@ -102,21 +102,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-gateway-deployment
+  name: {{ include "spring-cloud-helm.fullname" . }}-gateway-deployment
   labels:
     app: woodpecker-gateway
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.gatewayDeployment.replicas }}
   selector:
     matchLabels:
       app: woodpecker-gateway
-    {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
+    {{- include "spring-cloud-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         app: woodpecker-gateway
-      {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
+      {{- include "spring-cloud-helm.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - env:
@@ -135,21 +135,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-postgres-deployment
+  name: {{ include "spring-cloud-helm.fullname" . }}-postgres-deployment
   labels:
     app: woodpecker-postgres
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.postgresDeployment.replicas }}
   selector:
     matchLabels:
       app: woodpecker-postgres
-    {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
+    {{- include "spring-cloud-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         app: woodpecker-postgres
-      {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
+      {{- include "spring-cloud-helm.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - image: {{ .Values.postgresDeployment.postgres.image.repository }}:{{ .Values.postgresDeployment.postgres.image.tag
@@ -165,21 +165,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "woodpecker-helm.fullname" . }}-user-deployment
+  name: {{ include "spring-cloud-helm.fullname" . }}-user-deployment
   labels:
     app: woodpecker-user
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.userDeployment.replicas }}
   selector:
     matchLabels:
       app: woodpecker-user
-    {{- include "woodpecker-helm.selectorLabels" . | nindent 6 }}
+    {{- include "spring-cloud-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         app: woodpecker-user
-      {{- include "woodpecker-helm.selectorLabels" . | nindent 8 }}
+      {{- include "spring-cloud-helm.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - env:

@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: user-service
   labels:
-  {{- include "woodpecker-helm.labels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.userService.type }}
   selector:
     app: woodpecker-user
-  {{- include "woodpecker-helm.selectorLabels" . | nindent 4 }}
+  {{- include "spring-cloud-helm.selectorLabels" . | nindent 4 }}
   ports:
 	{{- .Values.userService.ports | toYaml | nindent 2 -}}

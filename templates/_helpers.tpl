@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "woodpecker-helm.name" -}}
+{{- define "spring-cloud-helm.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "woodpecker-helm.fullname" -}}
+{{- define "spring-cloud-helm.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "woodpecker-helm.chart" -}}
+{{- define "spring-cloud-helm.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "woodpecker-helm.labels" -}}
-helm.sh/chart: {{ include "woodpecker-helm.chart" . }}
-{{ include "woodpecker-helm.selectorLabels" . }}
+{{- define "spring-cloud-helm.labels" -}}
+helm.sh/chart: {{ include "spring-cloud-helm.chart" . }}
+{{ include "spring-cloud-helm.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "woodpecker-helm.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "woodpecker-helm.name" . }}
+{{- define "spring-cloud-helm.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "spring-cloud-helm.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "woodpecker-helm.serviceAccountName" -}}
+{{- define "spring-cloud-helm.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "woodpecker-helm.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "spring-cloud-helm.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
