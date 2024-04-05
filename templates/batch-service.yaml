@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: batch-service
   labels:
-  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
+  {{- include "msa-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.batchService.type }}
   selector:
-    app: woodpecker-batch
-  {{- include "spring-cloud-helm.selectorLabels" . | nindent 4 }}
+    app: msa-batch
+  {{- include "msa-helm.selectorLabels" . | nindent 4 }}
   ports:
 	{{- .Values.batchService.ports | toYaml | nindent 2 -}}

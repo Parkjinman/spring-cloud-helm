@@ -1,70 +1,66 @@
 batchDeployment:
   batch:
     image:
-      repository: jinmanpark/woodpecker-msa-batch-service
-      tag: '1'
+      repository: jinmanpark/spring-cloud-msa-batch-service
+      tag: v20240405
   replicas: 1
 batchService:
   ports:
-    - port: 8020
-      targetPort: 8020
+  - port: 8020
+    targetPort: 8020
   type: ClusterIP
-bffDeployment:
-  bff:
+businessDeployment:
+  business:
     image:
-      repository: jinmanpark/woodpecker-msa-bff-service
-      tag: '1'
+      repository: jinmanpark/spring-cloud-msa-business-service
+      tag: v20240405
   replicas: 1
-bffService:
+businessService:
   ports:
-    - port: 8040
-      targetPort: 8040
+  - port: 8030
+    targetPort: 8030
   type: ClusterIP
 discoveryDeployment:
   discovery:
     image:
-      repository: jinmanpark/woodpecker-msa-discovery-service
-      tag: '1'
+      repository: jinmanpark/spring-cloud-msa-discovery-service
+      tag: v20240405
   replicas: 1
 discoveryService:
   ports:
-    - port: 8761
-      targetPort: 8761
+  - port: 8761
+    targetPort: 8761
   type: ClusterIP
 gatewayDeployment:
   gateway:
     image:
-      repository: jinmanpark/woodpecker-msa-gateway-service
-      tag: '1'
+      repository: jinmanpark/spring-cloud-msa-gateway-service
+      tag: v20240405
   replicas: 1
 gatewayService:
   ports:
-    - port: 9000
-      targetPort: 9000
+  - port: 9000
+    targetPort: 9000
   type: ClusterIP
 postgres:
   ports:
-    - port: 5432
-      targetPort: 5432
+  - port: 5432
+    targetPort: 5432
   type: ClusterIP
 postgresDeployment:
   postgres:
     image:
-      repository: jinmanpark/woodpecker-msa-postgres
-      tag: v20240319
+      repository: jinmanpark/spring-cloud-msa-postgres
+      tag: v20240405
   replicas: 1
 userDeployment:
   replicas: 1
   user:
     image:
-      repository: jinmanpark/woodpecker-msa-user-service
-      tag: '1'
+      repository: jinmanpark/spring-cloud-msa-user-service
+      tag: v20240405
 userService:
   ports:
-    - port: 8010
-      targetPort: 8010
+  - port: 8010
+    targetPort: 8010
   type: ClusterIP
-deployment:
-  discovery:
-    image:
-      tag: '28'

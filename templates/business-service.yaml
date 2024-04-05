@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: business-service
   labels:
-  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
+  {{- include "msa-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.businessService.type }}
   selector:
-    app: woodpecker-business
-  {{- include "spring-cloud-helm.selectorLabels" . | nindent 4 }}
+    app: msa-business
+  {{- include "msa-helm.selectorLabels" . | nindent 4 }}
   ports:
 	{{- .Values.businessService.ports | toYaml | nindent 2 -}}

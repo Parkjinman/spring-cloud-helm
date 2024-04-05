@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: postgres
   labels:
-  {{- include "spring-cloud-helm.labels" . | nindent 4 }}
+  {{- include "msa-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.postgres.type }}
   selector:
-    app: woodpecker-postgres
-  {{- include "spring-cloud-helm.selectorLabels" . | nindent 4 }}
+    app: msa-postgres
+  {{- include "msa-helm.selectorLabels" . | nindent 4 }}
   ports:
 	{{- .Values.postgres.ports | toYaml | nindent 2 -}}
