@@ -58,7 +58,7 @@ userDeployment:
   user:
     image:
       repository: jinmanpark/spring-cloud-msa-user-service
-      tag: v20240405
+      tag: '1'
 userService:
   ports:
     - port: 8010
