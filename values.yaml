@@ -35,7 +35,7 @@ gatewayDeployment:
   gateway:
     image:
       repository: jinmanpark/spring-cloud-msa-gateway-service
-      tag: '1'
+      tag: '2'
   replicas: 1
 gatewayService:
   ports:
