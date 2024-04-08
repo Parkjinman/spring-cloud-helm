@@ -24,7 +24,7 @@ discoveryDeployment:
   discovery:
     image:
       repository: jinmanpark/spring-cloud-msa-discovery-service
-      tag: '1'
+      tag: '2'
   replicas: 1
 discoveryService:
   ports:
