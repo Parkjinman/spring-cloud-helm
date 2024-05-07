@@ -6,6 +6,8 @@ metadata:
   {{- include "msa-helm.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.postgres.type }}
+  externalIPs:
+    - {{ .Values.postgres.externalIPs }}
   selector:
     app: msa-postgres
   {{- include "msa-helm.selectorLabels" . | nindent 4 }}

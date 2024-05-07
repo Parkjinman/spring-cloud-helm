@@ -47,6 +47,7 @@ postgres:
     - port: 5432
       targetPort: 5432
   type: ClusterIP
+  externalIPs: 10.10.50.232
 postgresDeployment:
   postgres:
     image:
