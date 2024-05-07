@@ -2,7 +2,7 @@ batchDeployment:
   batch:
     image:
       repository: jinmanpark/spring-cloud-msa-batch-service
-      tag: '2'
+      tag: '3'
   replicas: 1
 batchService:
   ports:
