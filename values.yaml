@@ -35,7 +35,7 @@ gatewayDeployment:
   gateway:
     image:
       repository: jinmanpark/spring-cloud-msa-gateway-service
-      tag: '2'
+      tag: '3'
   replicas: 1
 gatewayService:
   ports:
@@ -63,7 +63,7 @@ userDeployment:
   user:
     image:
       repository: jinmanpark/spring-cloud-msa-user-service
-      tag: '2'
+      tag: '1'
 userService:
   ports:
     - port: 8010
