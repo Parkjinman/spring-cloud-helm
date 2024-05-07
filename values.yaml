@@ -53,6 +53,10 @@ postgresDeployment:
       repository: jinmanpark/spring-cloud-msa-postgres
       tag: v20240405
   replicas: 1
+pvc:
+  woodpeckerPostgresPvc:
+    storageClass: rook-ceph-block
+    storageRequest: 10Gi
 userDeployment:
   replicas: 1
   user:
