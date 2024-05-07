@@ -55,7 +55,7 @@ postgresDeployment:
       tag: v20240405
   replicas: 1
 pvc:
-  woodpeckerPostgresPvc:
+  msaPostgresPvc:
     storageClass: rook-ceph-block
     storageRequest: 10Gi
 userDeployment:

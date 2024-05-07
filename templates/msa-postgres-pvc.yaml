@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: msa-postgres-pvc
+  labels:
+  {{- include "msa-helm.labels" . | nindent 4 }}
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.pvc.msaPostgresPvc.storageRequest | quote }}
+  storageClassName: {{ .Values.pvc.msaPostgresPvc.storageClass | quote }}

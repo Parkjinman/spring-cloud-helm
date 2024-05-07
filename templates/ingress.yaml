@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-nginx
-  namespace: woodpecker-ns
+  namespace: msa-ns
 spec:
   ingressClassName: nginx
   rules:
