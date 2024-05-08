@@ -150,6 +150,16 @@ spec:
         ports:
         - containerPort: 5432
         resources: {}
+        envFrom:
+          - secretRef:
+              name: postgres-secret
+        volumeMounts:
+          - mountPath: /mnt/postgresql-data
+            name: postgres-storage
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: msa-postgres-pvc
       restartPolicy: Always
 ---
 apiVersion: apps/v1
