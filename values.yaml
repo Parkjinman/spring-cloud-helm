@@ -13,7 +13,7 @@ businessDeployment:
   business:
     image:
       repository: jinmanpark/spring-cloud-msa-business-service
-      tag: '3'
+      tag: '4'
   replicas: 1
 businessService:
   ports:
